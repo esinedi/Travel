@@ -90,6 +90,7 @@ export default {
 .icons {
   width: 100%;
   height: 0;
+  margin-top: .2rem;
   padding-bottom: 50%;
   /deep/ .swiper-container {
     height: 0;

@@ -3,6 +3,8 @@
     <HomeHeaders></HomeHeaders>
     <HomeSwiper></HomeSwiper>
     <HomeIcons></HomeIcons>
+    <HomeRecommend></HomeRecommend>
+    <HomeWeekend></HomeWeekend>
     <!-- <router-link to="/list">列表页</router-link> -->
   </div>
 </template>
@@ -12,13 +14,17 @@
 import HomeHeaders from './components/Header.vue'
 import HomeSwiper from './components/Swiper.vue'
 import HomeIcons from './components/Icons.vue'
+import HomeRecommend from './components/Recommend.vue'
+import HomeWeekend from './components/Weekend.vue'
 
 export default {
   name: 'HomeView',
   components: {
     HomeHeaders,
     HomeSwiper,
-    HomeIcons
+    HomeIcons,
+    HomeRecommend,
+    HomeWeekend
   }
   // data () {
   //   return {
