@@ -2,6 +2,7 @@
   <div class="home">
     <HomeHeaders></HomeHeaders>
     <HomeSwiper></HomeSwiper>
+    <HomeIcons></HomeIcons>
     <!-- <router-link to="/list">列表页</router-link> -->
   </div>
 </template>
@@ -10,11 +11,14 @@
 
 import HomeHeaders from './components/Header.vue'
 import HomeSwiper from './components/Swiper.vue'
+import HomeIcons from './components/Icons.vue'
+
 export default {
   name: 'HomeView',
   components: {
     HomeHeaders,
-    HomeSwiper
+    HomeSwiper,
+    HomeIcons
   }
   // data () {
   //   return {
