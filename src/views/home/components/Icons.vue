@@ -16,64 +16,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
       swiperOptions: {
-      },
-      iconsList: [
-        {
-          id: 1,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 2,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 3,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 4,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 5,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 6,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 7,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 8,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        },
-        {
-          id: 9,
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_200x200_a3c26b4d.jpg',
-          desc: '热门景点'
-        }
-      ]
+      }
     }
   },
   computed: {
     // 将 icon 数据进行页面分组
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.iconList.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

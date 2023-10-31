@@ -8,5 +8,15 @@ module.exports = defineConfig({
         additionalData: `@import "@/assets/styles/varibles.less";`,
       }
     }
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+          '^/api': '/mock'
+        }
+      }
+    }
   }
 })

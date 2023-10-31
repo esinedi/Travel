@@ -12,6 +12,9 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    swiperList: Array
+  },
   data () {
     return {
       swiperOptions: {
@@ -19,17 +22,7 @@ export default {
           el: '.swiper-pagination'
         },
         loop: true
-      },
-      swiperList: [
-        {
-          id: 1,
-          imgUrl: 'https://imgs.qunarzz.com/sight/source/1511/8f/bf3a40e4afcf29.jpg_r_640x214_90225212.jpg'
-        },
-        {
-          id: 2,
-          imgUrl: 'https://imgs.qunarzz.com/sight/source/1711/15/1cdd5ee885686b.jpg_r_640x214_46768064.jpg'
-        }
-      ]
+      }
     }
   },
   computed: {
@@ -49,7 +42,7 @@ export default {
   overflow: hidden;
   width: 100%;
   height: 0;
-  padding-bottom: 37.08%;
+  padding-bottom: 31.2%;
   background: #fff;
   .swiper-container{
     --swiper-pagination-color: #00ff33;/* 两种都可以 */
