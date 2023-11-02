@@ -13,12 +13,17 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   },
   {
     path: '/list',
     name: 'list',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ListView.vue')
+    component: () => import('../views/ListView.vue')
+  },
+  {
+    path: '/city',
+    name: 'city',
+    component: () => import('../views/city/CityView.vue')
   }
 ]
 

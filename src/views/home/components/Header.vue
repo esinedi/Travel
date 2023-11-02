@@ -7,10 +7,12 @@
       <span class="iconfont">&#xe632;</span>
       内容
     </div>
-    <div class="header-right">
-      {{ city }}
-      <span class="iconfont">&#xe62d;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        {{ city }}
+        <span class="iconfont">&#xe62d;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -27,7 +29,7 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  height: .86rem;
+  height: @header-height;
   color: #fff;
   background: @over-bg-color;
   .header-left {
@@ -50,6 +52,7 @@ export default {
     width: 1.24rem;
     float: right;
     text-align: center;
+    color: #fff;
     .iconfont {
       margin-left: -.04rem;
       font-size: .24rem;
