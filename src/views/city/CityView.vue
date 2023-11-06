@@ -3,7 +3,6 @@
     <CityHeader></CityHeader>
     <CitySearch :cities="cities"></CitySearch>
     <CityList
-      :city="city"
       :cities="cities"
       :hotCities="hotCities"
       :letter="letter"
@@ -32,7 +31,6 @@ export default {
   },
   data () {
     return {
-      city: '',
       cities: {},
       alphabetList: [],
       hotCities: [],
@@ -50,7 +48,6 @@ export default {
     getCityInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
-        this.city = res.data.city
         this.hotCities = res.data.hotCities
         this.cities = res.data.cities
         this.alphabetList = Object.keys(res.data.cities)

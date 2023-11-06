@@ -17,7 +17,11 @@
         </div>
       </div>
       <div class="button-list">
-        <div class="button-wrapper" v-for="item in hotCities" :key="item.id">
+        <div class="button-wrapper"
+          v-for="item in hotCities"
+          :key="item.id"
+          @click="handleCityClick(item.name)"
+        >
           <div class="button">{{ item.name }}</div>
         </div>
       </div>
@@ -26,7 +30,7 @@
           {{ key }}
         </div>
         <div class="item-list">
-          <div class="item border-topbottom" v-for="city in item" :key="city.id">
+          <div class="item border-topbottom" v-for="city in item" :key="city.id" @click="handleCityClick(city.name)">
             {{ city.name }}
           </div>
         </div>
@@ -36,14 +40,11 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import BScroll from '@better-scroll/core'
 export default {
   name: 'CityList',
   props: {
-    city: {
-      type: String,
-      default: ''
-    },
     cities: {
       type: Object,
       default: () => {}
@@ -62,10 +63,26 @@ export default {
       scroll: null
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getScrollStatus () {
-      this.scroll = new BScroll(this.$refs.wrapper, {})
-    }
+      this.scroll = new BScroll(this.$refs.wrapper, {
+        scrollY: true,
+        click: true
+      })
+    },
+    handleCityClick (city) {
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
+    // 或者
+    // ...mapMutations({
+    //   changeCity: changeCity
+    // })
   },
   watch: {
     cities (n, o) {

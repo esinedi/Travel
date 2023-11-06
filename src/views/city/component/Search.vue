@@ -8,7 +8,7 @@
      v-show="keyword"
     >
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">
+        <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">
           {{ item.name }}
         </li>
         <li class="search-item border-bottom" v-show="hasNoDate">
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import BScroll from '@better-scroll/core'
 export default {
   name: 'CitySearch',
@@ -73,8 +74,20 @@ export default {
       }, 100)
     },
     getScrollStatus () {
-      this.scroll = new BScroll(this.$refs.search, {})
-    }
+      this.scroll = new BScroll(this.$refs.search, {
+        scrollY: true,
+        click: true
+      })
+    },
+    handleCityClick (city) {
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
+      // 传参
+      // this.$router.push({name:'/', params: {id:1}})
+      // this.$router.push({path:'/', query: {id:1}})
+    },
+    ...mapMutations(['changeCity'])
   },
   mounted () {
     this.getScrollStatus()

@@ -10,6 +10,8 @@
     <router-link to="/city">
       <div class="header-right">
         {{ city }}
+        <!-- 或者 {{ currentCity }} -->
+        <!-- 计算属性 doubleCity -->
         <span class="iconfont">&#xe62d;</span>
       </div>
     </router-link>
@@ -17,10 +19,17 @@
 </template>
 
 <script>
+// mapState 映射 api
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city']),
+    ...mapGetters(['doubleCity'])
+    // 或者
+    // ...mapState({
+    //  currentCity: city
+    // })
   }
 }
 </script>
@@ -49,7 +58,8 @@ export default {
     border-radius: .1rem;
   }
   .header-right {
-    width: 1.24rem;
+    padding: 0 0.1rem;
+    min-width: 1.04rem;
     float: right;
     text-align: center;
     color: #fff;
