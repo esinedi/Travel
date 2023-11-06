@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import BetterScroll from 'better-scroll'
+import BScroll from '@better-scroll/core'
 export default {
   name: 'CityList',
   props: {
@@ -64,15 +64,13 @@ export default {
   },
   methods: {
     getScrollStatus () {
-      this.scroll = new BetterScroll(this.$refs.wrapper, {
-        movable: true
-      })
+      this.scroll = new BScroll(this.$refs.wrapper, {})
     }
   },
   watch: {
     cities (n, o) {
       if (Object.keys(n).length !== 0) {
-        this.$nextTick(() => this.getScrollStatus())
+        this.$nextTick(() => this.scroll.refresh())
       }
     },
     letter (n, o) {
@@ -83,6 +81,9 @@ export default {
         this.scroll.scrollToElement(element, 100)
       }
     }
+  },
+  mounted () {
+    this.getScrollStatus()
   }
 }
 </script>
@@ -100,14 +101,6 @@ export default {
     line-height: .4rem;
     background: #eee;
     padding-left: .2rem;
-   }
-   .border-topbottom {
-    &::before {
-      border-color: #ccc;
-    }
-    &::after {
-      border-color: #ccc;
-    }
    }
   }
   .button-list {
