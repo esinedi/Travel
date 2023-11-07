@@ -2,7 +2,11 @@
   <div class="recommend">
     <div class="recommend-title">热销推荐</div>
     <ul class="ul-main">
-      <li class="item" v-for="item in recommendList" :key="item.id">
+      <li class="item"
+        v-for="item in recommendList"
+        :key="item.id"
+        @click="handleDetail"
+      >
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt="">
         </div>
@@ -21,6 +25,11 @@ export default {
   name: 'HomeRecommend',
   props: {
     recommendList: Array
+  },
+  methods: {
+    handleDetail () {
+      this.$router.push('/detail')
+    }
   }
 }
 </script>
