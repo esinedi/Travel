@@ -27,6 +27,7 @@ export default {
           el: '.swiper-pagination',
           type: 'fraction'
         },
+        click: true,
         // 只要监听到父元素或者自己dom结构的变化，就自我刷新一次，解决了 swiper 宽度计算的问题
         observeParents: true,
         observer: true
