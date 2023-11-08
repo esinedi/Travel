@@ -26,14 +26,23 @@ const routes = [
     component: () => import('../views/city/CityView.vue')
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'Detail',
     component: () => import('../views/detail/DetailView.vue')
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    // 始终滚动到顶部
+    return { x: 0, y: 0 }
+  }
 })
+
+// router.beforeEach((to, from, next) => {
+//   window.scrollTo(0, 0)
+//   next()
+// })
 
 export default router

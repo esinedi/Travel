@@ -5,7 +5,7 @@
       <li class="item"
         v-for="item in recommendList"
         :key="item.id"
-        @click="handleDetail"
+        @click="handleDetail(item.id)"
       >
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt="">
@@ -27,8 +27,8 @@ export default {
     recommendList: Array
   },
   methods: {
-    handleDetail () {
-      this.$router.push('/detail')
+    handleDetail (id) {
+      this.$router.push('/detail/' + id)
     }
   }
 }
